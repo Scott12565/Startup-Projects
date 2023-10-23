@@ -1,0 +1,502 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,900&display=swap');
+
+:root{
+    --primary-color: #fff;
+    --light-color: #f4f4f4;
+    --bg-primary: #fff;
+    --btn-primary: #fff;
+    --bg-secondary: #d6690a;
+    --secondary-color: #333;
+    --btn-secondary: #df7315;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+body{
+    font-family: 'lato', sans-serif;
+    line-height: 1.6;
+
+
+}
+
+/* navbar */
+.head{
+    background-color: var(--bg-primary);
+    /* height: 70px; */
+    box-shadow: 1px 0 5px rgba(0, 0, 0, .9)
+    
+}
+
+.menu{
+    display: none;
+    position: absolute;
+    right: 10%;
+    padding: 10px 0;
+    font-size: 2rem;
+    color: var(--secondary-color);
+    /* text-align: center; */
+    cursor: pointer;
+}
+
+.head #brand{
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #333;
+    text-transform: capitalize;
+    padding: 22px 0;
+    /* border-bottom: 2px solid gray; */
+}
+
+.head .navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* padding: 25px 0; */
+}
+
+.navbar li{
+    font-size: 15px;
+    font-size: 700;
+    margin-right: 30px;
+}
+
+.navbar li a{
+    font-weight: 700;
+    transition: all .1s ease-in;
+    
+}
+
+.navbar li a:hover{
+    color: var(--bg-secondary);
+    border-bottom: 2px solid var(--bg-secondary);
+    transform: scale(-1);
+}
+
+/* showcase */
+.showcase{
+    position: relative;
+    
+}
+
+.showcase h2{
+    animation-name: slideFromLeft;
+    animation-duration: .7s;
+    animation-timing-function: ease-in-out;
+
+}
+
+.showcase p{
+    animation-name: slideFromRight;
+    animation-duration: .7s;
+    animation-timing-function: ease-in-out;
+    
+}
+
+.showcase.bg-image{
+    height: 100vh;
+    background: url('../img/assets/img/bg-masthead.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.showcase.flex{
+    justify-content: center;
+    align-items: center;
+}
+
+.showcase-overlay{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    /* top: 0;
+    left: 0; */
+    background-color: var(--bg-secondary);
+    opacity: .3;
+    z-index: 111;
+}
+
+.showcase-content{
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* about */
+#about{
+    background-color: var(--bg-secondary);
+    text-align: center;
+}
+
+#about hr{
+    background-color: var(--light-color);
+}
+
+.about-content{
+    width: 67%;
+    margin: 0 auto;
+    
+}
+
+.about-content p{
+    line-height: 1.45;
+}
+
+#services{
+    text-align: center;
+}
+
+.services-info p{
+    color: var(--secondary-color);
+}
+
+.grid-4 div{
+    width: 245px;
+    margin: 0 auto;
+}
+
+/* Portfolio */
+#portfolio{
+    /* position: relative; */
+}
+.portfolio-content.grid-3{
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.portfolio-content div{
+    position: relative;
+    background-color: yellow;
+}
+
+
+
+.portfolio-content div p{
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.portfolio-content div .img-overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-secondary);
+    opacity: .5;
+    transition: all .1s ease-in;
+    z-index: 111;
+    transform: scale(0);
+    cursor: pointer;
+}
+
+.portfolio-content div:hover .img-overlay{
+    transform: scale(1);
+}
+
+.portfolio-content div .img-overlay.flex{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* download */
+#download{
+    background-color: #001;
+    color: var(--primary-color);
+    text-align: center;
+}
+
+/* contact and form */
+#contacts{
+    text-align: center;
+}
+
+#contacts p{
+    width: 50%;
+    margin: 10px auto;
+    font-weight: 400;
+    color: var(--secondary-color);
+}
+
+#contacts .contact-form{
+    width: 48%;
+    margin: 15px auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-form input[type='button']{
+    margin-top: 10px;
+}
+
+.contact-form i{
+    font-size: 2.7rem;
+    padding: 20px 0;
+}
+
+#contacts .myForm{
+    width: 100%;
+}
+
+/* the page overlay */
+.page-overlay{
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .7);
+    z-index: 999;
+    display: none;
+    transform:  scale(1);
+    
+}
+
+.page-overlay.closed{
+    /* display: none; */
+}
+
+/* slider container */
+.slide-container{
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    top: 25%;
+    left: 25%;
+    z-index: 999;
+    box-shadow: 1px 2px 20px #333;
+    overflow: hidden;
+    transition: 7s;
+    transition-delay: 1s;
+}
+
+/* slides*/
+.slide{
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+.slide.current{
+   display: block;
+}
+
+/* buttons */
+.buttons{
+    width: 95%;
+    margin-left: 25px;
+    position: absolute;
+    top: 50%;
+    /* left: 50%; */
+    display: flex;
+    justify-content: space-between;
+    background-color: transparent;
+}
+
+.slide-btn{
+    font-size: 2.2rem;
+    font-family: 400;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 50%;
+    background-color: var(--bg-secondary);
+    color: var(--primary-color);
+    cursor: pointer;
+    transition: all .4s ease-in-out;
+}
+
+.right-arrow{
+    /* margin-right: 5px; */
+}
+
+.slide-btn:hover{
+    background-color: var(--secondary-color);
+    color: var(--bg-secondary);
+}
+
+.close{
+    position: absolute;
+    top: 5%;
+    right: 50px;
+    color: aquamarine;
+    font-size: 3rem;
+    font-weight: 700;
+    cursor: pointer;
+    z-index: 999;
+}
+
+.close:hover{
+    color: rgb(0, 5, 7);
+    transform: scale(-1)
+}
+
+/* media Queries */
+
+@media (max-width: 1024px){
+    .container{
+        width: 85%;
+        margin: 0 auto;
+    }
+    .services-info div{
+        width: 200px;
+    }
+}
+
+@media (max-width: 950px){
+    .container{
+        width: 85%;
+        margin: 0 auto;
+    }
+    .services-info div{
+        width: 200px;
+    }
+}
+/* tablet */
+@media screen and (max-width: 768px){
+
+    .container{
+        width: 85%;
+        margin: 0 auto;
+    }
+    .menu{
+        display: block;
+
+
+    }
+    /* navbar */
+    .head .container{
+        display: block; 
+    }
+
+    .head #brand{
+        padding: 10px 0;
+    }
+
+    .head .navbar{
+        display: block;
+        overflow: hidden;
+        height: 0;
+    }
+
+    .navbar li{
+        padding-top: 10px;
+        font-size: 14px;
+    }
+
+    .head .navbar.open{
+        height: auto;
+    }
+
+    /* showcase */
+    .showcase-content{
+        width: 95%;
+    }
+
+    .showcase-content h2{
+        font-size: 2.2rem;
+    }
+
+    /* about */
+    .about-content {
+        width: 95%;
+    }
+
+    .grid-4{
+        grid-template-columns: repeat(2, 1fr);
+        width: 95%;
+        margin: 0 auto;
+    }
+    
+    .portfolio-content.grid-3{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    #contacts p{
+        width: 95%;
+    }
+
+    #contacts .contact-form{
+        width: 95%;
+    }
+
+}
+
+@media screen and (max-width: 600px){
+    .grid-4{
+        grid-template-columns: 1fr;
+    }
+
+    .grid-4 div{
+        width: 95%;
+        margin: 0 auto;
+    }
+}
+
+/* mobile */
+@media screen and (max-width: 425px){
+
+    .container{
+        width: 90%;
+    }
+    .menu{
+        display: block;
+    }
+
+    /* navbar */
+    .head .container{
+        display: block; 
+    }
+
+    .head #brand{
+        font-size: 1.3rem;
+        padding: 10px 0;
+    }
+
+    .grid-4{
+        grid-template-columns: 1fr;
+    }
+    .grid-4 div{
+        width: 95%;
+        margin: 0 auto;
+    }
+
+    p{
+        font-size: 1rem;
+        font-weight: 400;
+    }
+    
+    .portfolio-content.grid-3{
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    #download h3{
+        font-size: 1.7rem;
+        line-height: 1.3;
+    }
+}
+
+/* Animation */
+@keyframes slideFromLeft{
+    0%{
+        transform: translateX(-100%);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideFromRight{
+    0%{
+        transform: translateX(100%);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
