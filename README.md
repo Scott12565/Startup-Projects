@@ -1,6 +1,6 @@
 # startup project
 
-this projects was created to everything i have learned in:
+this projects was created to put everything i have learned in:
 - CSS
 - HTML
 - JAVASCRIPT
